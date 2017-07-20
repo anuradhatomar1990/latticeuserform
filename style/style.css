@@ -1,0 +1,13 @@
+.main_heading{
+	text-align: center;
+}
+.login_form{
+	margin: auto;
+	width: 30%;
+	background-color: #f2f2f2;
+	padding: 30px;
+}
+.table{
+	margin: auto;
+	width: 60%;
+}
