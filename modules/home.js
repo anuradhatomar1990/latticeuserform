@@ -1,1 +1,4 @@
-angular.module('home', ['ngMessages', 'ngPasswordMeter']);
+angular.module('home', [
+	'ngMessages',
+	'ngPasswordMeter',
+]);

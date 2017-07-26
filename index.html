@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
 	<title>Home</title>
 
 	<!-- External Modules -->
 	<script type="text/javascript" src="ext/angular/angular.js"></script>
 	<script type="text/javascript" src="ext/angular/angular-messages.js"></script>
 	<script type="text/javascript" src="ext/angular/password-meter.js"></script>
-	<link rel="stylesheet" type="text/css" href="ext/angular/password-meter.css">
 	<script type="text/javascript" src="ext/jquery/jquery.js"></script>
 	<script type="text/javascript" src="ext/bootstrap/js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="ext/bootstrap/css/bootstrap.css"/>
-	
+	<link rel="stylesheet" type="text/css" href="ext/angular/password-meter.css">
 
 	<!-- modules -->
 	<script type="text/javascript" src="modules/home.js"></script>
@@ -24,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body ng-app="home" ng-controller="HomeCtrl">
-	<h2 class="main_heading">User Form</h2>
+<h2 class="main_heading">User Form</h2>
 	<form name="loginform" class="login_form">
   		<div class="form-group">
     		<label>Full Name</label>
@@ -47,7 +46,7 @@
 	  	</div>
   		<div class="form-group">
 		    <label>Password</label>
-		    <input type="password" name="password" class="form-control" ng-pattern="/^[A-Za-z0-9]*$/" placeholder="Password" ng-model="data.password"  required="true" ng-minlength="6" ng-maxlength="15">
+		    <input type="password" name="password" class="form-control" ng-pattern="/^[A-Za-z0-9]*$/" placeholder="Password" ng-model="data.password"  required="true" ng-minlength="6" ng-maxlength="10">
 
   		</div>
   		<ng-password-meter password="loginform.password.$viewValue"></ng-password-meter>
@@ -66,15 +65,19 @@
 				<th>Full Name</th>
 				<th>Username</th>
 				<th>Email</th>
+				<th>Update</th>
             </tr>
-            <tr ng-repeat="listData in userDataList">
+            <tr ng-repeat="listData in userDataList track by $index">
             	<td>{{listData.sNo}}</td>
             	<td>{{listData.fullName}}</td>
             	<td>{{listData.username}}</td>
             	<td>{{listData.email}}</td>
+              <td>
+                  <button class="btn btn-default" ng-click="onEdit($index)"> Edit</button>
+                  <button  class="btn btn-default" ng-click="onDelete($index)">Delete</button>
+              </td>
             </tr>
 		</table>
 	</div>
-	
 </body>
 </html>
